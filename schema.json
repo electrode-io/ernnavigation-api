@@ -106,21 +106,32 @@
     },
     "NavigationBarButton": {
       "properties": {
-        "name": {
+        "title": {
           "type": "string",
-          "description": "Name of button"
+          "description": "Button title if any."
         },
-        "identifier": {
+        "icon": {
           "type": "string",
-          "description": "Id of the button"
+          "description": "Icon resource identifier that can be used find the icon"
         },
-        "orientation": {
+        "id": {
           "type": "string",
-          "description": "Orientation LEFT|RIGHT|CENTER etc."
+          "description": "Id of the button, this namespace will be used as an identifier when a button click event is emitted."
+        },
+        "location": {
+          "type": "string",
+          "description": "Allowed enums: left, right"
+        },
+        "disabled": {
+          "type": "boolean",
+          "description" : "Default to false. If set to true the button will be disabled(non-clickable)"
+        },
+        "accessibilityLabel" : {
+          "type": "string",
+          "description": "Accessibility label"
         }
       },
       "required": [
-        "name",
         "identifier",
         "orientation"
       ]
