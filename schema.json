@@ -83,6 +83,24 @@
           }
         ]
       }
+    },
+    "/events": {
+      "event": {
+        "tags": [
+          "EnNavigation"
+        ],
+        "description": "Fire this event when a navigation bar button is clicked",
+        "operationId": "OnNavButtonClick",
+        "parameters": [
+          {
+            "name": "buttonId",
+            "in": "path",
+            "description": "Id of the button that is being clicked",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
     }
   },
   "definitions": {

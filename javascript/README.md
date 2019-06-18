@@ -59,6 +59,7 @@ Class | Method |request type | Description
 *ernnavigationApi.EnNavigationApi* | [**back**](docs/EnNavigationApi.md#back) | **request** /back | 
 *ernnavigationApi.EnNavigationApi* | [**finish**](docs/EnNavigationApi.md#finish) | **request** /finish | 
 *ernnavigationApi.EnNavigationApi* | [**navigate**](docs/EnNavigationApi.md#navigate) | **request** /navigate | 
+*ernnavigationApi.EnNavigationApi* | [**onNavButtonClick**](docs/EnNavigationApi.md#onNavButtonClick) | **event** /events | 
 *ernnavigationApi.EnNavigationApi* | [**update**](docs/EnNavigationApi.md#update) | **request** /update | 
 
 ## Documentation for Models

@@ -10,14 +10,22 @@
  */
 import {expect} from 'chai';
 import EnNavigationRequests  from '../../src/api/EnNavigationRequests';
+import EnNavigationEvents  from '../../src/api/EnNavigationEvents';
 
 describe('EnNavigationApi', function(){
   let requests;
+  let events;
   beforeEach(function() {
     requests = new EnNavigationRequests({
         registerHandler(){
         },
         sendRequest(){
+        }
+    });
+    events = new EnNavigationEvents({
+        registerEventListener(){
+        },
+        emitEvent(){
         }
     });
 
@@ -55,6 +63,18 @@ describe('EnNavigationApi', function(){
         //});
 
       });
+    });
+
+    describe('onNavButtonClick', function() {
+        it('should emit event onNavButtonClick successfully', (done)=> {
+        //uncomment below and update the code to test onNavButtonClick
+        //register listener.
+        //events.addOnNavButtonClickEventListener(()=>done());
+        //emit event.
+        //events.emitOnNavButtonClick(buttonId: string);
+        //});
+        done();
+        });
     });
 
     describe('update', function() {
