@@ -160,6 +160,10 @@
           "type": "string",
           "description": "Title of Nav Bar"
         },
+        "hide" : {
+          "type" : "boolean",
+          "description" : "Use to hide the navigation bar."
+        },
         "buttons": {
           "type": "array",
           "items": {
