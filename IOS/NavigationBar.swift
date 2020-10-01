@@ -5,7 +5,7 @@
     /**
      Title of Nav Bar
      */
-    public let title: String
+    public let title: String?
     /**
      Use to hide the navigation bar.
      */
@@ -16,7 +16,7 @@
     public let buttons: [NavigationBarButton]?
     public let leftButton: NavigationBarLeftButton?
 
-    public init(title: String, hide: Bool?, buttons: [NavigationBarButton]?, leftButton: NavigationBarLeftButton?) {
+    public init(title: String?, hide: Bool?, buttons: [NavigationBarButton]?, leftButton: NavigationBarLeftButton?) {
         self.title = title
         self.hide = hide
         self.buttons = buttons
@@ -25,7 +25,7 @@
     }
 
     public override init() {
-        self.title = String()
+        self.title = nil
         self.hide = nil
         self.buttons = nil
         self.leftButton = nil
@@ -33,13 +33,12 @@
     }
 
     public required init(dictionary: [AnyHashable: Any]) {
+
         if let title = dictionary["title"] as? String {
             self.title = title
         } else {
-            assertionFailure("\(NavigationBar.tag) missing one or more required properties [title]")
-            self.title = dictionary["title"] as! String
+            self.title = nil
         }
-
         if let hide = dictionary["hide"] as? Bool {
             self.hide = hide
         } else {
@@ -63,8 +62,10 @@
     public func toDictionary() -> NSDictionary {
         var dict = [:] as [AnyHashable: Any]
 
-        dict["title"] = self.title
 
+        if let nonNullTitle = self.title {
+            dict["title"] = nonNullTitle
+        }
         if let nonNullHide = self.hide {
             dict["hide"] = nonNullHide
         }
@@ -86,7 +87,7 @@ public class NavigationBar: ElectrodeObject, Bridgeable {
     /**
      Title of Nav Bar
      */
-    public let title: String
+    public let title: String?
     /**
      Use to hide the navigation bar.
      */
@@ -97,7 +98,7 @@ public class NavigationBar: ElectrodeObject, Bridgeable {
     public let buttons: [NavigationBarButton]?
     public let leftButton: NavigationBarLeftButton?
 
-    public init(title: String, hide: Bool?, buttons: [NavigationBarButton]?, leftButton: NavigationBarLeftButton?) {
+    public init(title: String?, hide: Bool?, buttons: [NavigationBarButton]?, leftButton: NavigationBarLeftButton?) {
         self.title = title
         self.hide = hide
         self.buttons = buttons
@@ -106,7 +107,7 @@ public class NavigationBar: ElectrodeObject, Bridgeable {
     }
 
     public override init() {
-        self.title = String()
+        self.title = nil
         self.hide = nil
         self.buttons = nil
         self.leftButton = nil
@@ -114,13 +115,12 @@ public class NavigationBar: ElectrodeObject, Bridgeable {
     }
 
     public required init(dictionary: [AnyHashable: Any]) {
+
         if let title = dictionary["title"] as? String {
             self.title = title
         } else {
-            assertionFailure("\(NavigationBar.tag) missing one or more required properties [title]")
-            self.title = dictionary["title"] as! String
+            self.title = nil
         }
-
         if let hide = dictionary["hide"] as? Bool {
             self.hide = hide
         } else {
@@ -144,8 +144,10 @@ public class NavigationBar: ElectrodeObject, Bridgeable {
     public func toDictionary() -> NSDictionary {
         var dict = [:] as [AnyHashable: Any]
 
-        dict["title"] = self.title
 
+        if let nonNullTitle = self.title {
+            dict["title"] = nonNullTitle
+        }
         if let nonNullHide = self.hide {
             dict["hide"] = nonNullHide
         }

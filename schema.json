@@ -237,10 +237,7 @@
         "leftButton": {
           "$ref": "#/definitions/NavigationBarLeftButton"
         }
-      },
-      "required": [
-        "title"
-      ]
+      }
     },
   "NavEventData": {
     "properties": {

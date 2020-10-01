@@ -61,10 +61,6 @@ public class NavigationBar implements Parcelable, Bridgeable {
     }
 
     public NavigationBar(@NonNull Bundle bundle) {
-        if (!bundle.containsKey("title")) {
-            throw new IllegalArgumentException("title property is required");
-        }
-
         this.title = bundle.getString("title");
         this.hide = bundle.containsKey("hide") ? bundle.getBoolean("hide") : null;
         this.buttons = bundle.containsKey("buttons") ? getList(bundle.getParcelableArray("buttons"), NavigationBarButton.class) : null;
@@ -76,7 +72,7 @@ public class NavigationBar implements Parcelable, Bridgeable {
      *
      * @return String
      */
-    @NonNull
+    @Nullable
     public String getTitle() {
         return title;
     }
@@ -120,7 +116,9 @@ public class NavigationBar implements Parcelable, Bridgeable {
     @Override
     public Bundle toBundle() {
         Bundle bundle = new Bundle();
-        bundle.putString("title", this.title);
+        if (title != null) {
+            bundle.putString("title", this.title);
+        }
         if (this.hide != null) {
             bundle.putBoolean("hide", this.hide);
         }
@@ -144,13 +142,18 @@ public class NavigationBar implements Parcelable, Bridgeable {
     }
 
     public static class Builder {
-        private final String title;
+        private String title;
         private Boolean hide;
         private List<NavigationBarButton> buttons;
         private NavigationBarLeftButton leftButton;
 
-        public Builder(@NonNull String title) {
+        public Builder() {
+        }
+
+        @NonNull
+        public Builder title(@Nullable String title) {
             this.title = title;
+            return this;
         }
 
         @NonNull
