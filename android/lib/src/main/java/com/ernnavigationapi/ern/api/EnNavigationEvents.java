@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ernnavigationApi.ern.api;
+package com.ernnavigationapi.ern.api;
 
 import android.support.annotation.NonNull;
 
@@ -28,8 +28,8 @@ import com.walmartlabs.electrode.reactnative.bridge.None;
 import java.util.*;
 import java.util.UUID;
 
-import com.ernnavigationApi.ern.model.ErnNavRoute;
-import com.ernnavigationApi.ern.model.NavEventData;
+import com.ernnavigationapi.ern.model.ErnNavRoute;
+import com.ernnavigationapi.ern.model.NavEventData;
 
 final class EnNavigationEvents implements EnNavigationApi.Events {
     EnNavigationEvents() {

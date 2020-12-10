@@ -1,11 +1,11 @@
 #if swift(>=4.0)
 @objcMembers public class EnNavigationAPI: NSObject {
-    static let kRequestBack = "com.ernnavigationApi.ern.api.request.back"
-    static let kRequestFinish = "com.ernnavigationApi.ern.api.request.finish"
-    static let kEventNavEvent = "com.ernnavigationApi.ern.api.event.navEvent"
-    static let kRequestNavigate = "com.ernnavigationApi.ern.api.request.navigate"
-    static let kEventOnNavButtonClick = "com.ernnavigationApi.ern.api.event.onNavButtonClick"
-    static let kRequestUpdate = "com.ernnavigationApi.ern.api.request.update"
+    static let kRequestBack = "com.ernnavigationapi.ern.api.request.back"
+    static let kRequestFinish = "com.ernnavigationapi.ern.api.request.finish"
+    static let kEventNavEvent = "com.ernnavigationapi.ern.api.event.navEvent"
+    static let kRequestNavigate = "com.ernnavigationapi.ern.api.request.navigate"
+    static let kEventOnNavButtonClick = "com.ernnavigationapi.ern.api.event.onNavButtonClick"
+    static let kRequestUpdate = "com.ernnavigationapi.ern.api.request.update"
 
     public lazy var events: EnNavigationAPIEvents = {
         EnNavigationEvents()
@@ -106,12 +106,12 @@
 #else
 
 public class EnNavigationAPI: NSObject {
-    static let kRequestBack = "com.ernnavigationApi.ern.api.request.back"
-    static let kRequestFinish = "com.ernnavigationApi.ern.api.request.finish"
-    static let kEventNavEvent = "com.ernnavigationApi.ern.api.event.navEvent"
-    static let kRequestNavigate = "com.ernnavigationApi.ern.api.request.navigate"
-    static let kEventOnNavButtonClick = "com.ernnavigationApi.ern.api.event.onNavButtonClick"
-    static let kRequestUpdate = "com.ernnavigationApi.ern.api.request.update"
+    static let kRequestBack = "com.ernnavigationapi.ern.api.request.back"
+    static let kRequestFinish = "com.ernnavigationapi.ern.api.request.finish"
+    static let kEventNavEvent = "com.ernnavigationapi.ern.api.event.navEvent"
+    static let kRequestNavigate = "com.ernnavigationapi.ern.api.request.navigate"
+    static let kEventOnNavButtonClick = "com.ernnavigationapi.ern.api.event.onNavButtonClick"
+    static let kRequestUpdate = "com.ernnavigationapi.ern.api.request.update"
 
     public lazy var events: EnNavigationAPIEvents = {
         EnNavigationEvents()
