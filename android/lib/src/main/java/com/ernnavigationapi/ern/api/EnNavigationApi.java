@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ernnavigationApi.ern.api;
+package com.ernnavigationapi.ern.api;
 
 import android.support.annotation.NonNull;
 
@@ -28,8 +28,8 @@ import com.walmartlabs.electrode.reactnative.bridge.RequestHandlerHandle;
 import java.util.*;
 import java.util.UUID;
 
-import com.ernnavigationApi.ern.model.ErnNavRoute;
-import com.ernnavigationApi.ern.model.NavEventData;
+import com.ernnavigationapi.ern.model.ErnNavRoute;
+import com.ernnavigationapi.ern.model.NavEventData;
 
 public final class EnNavigationApi {
     private static final Requests REQUESTS;
@@ -54,8 +54,8 @@ public final class EnNavigationApi {
     }
 
     public interface Events {
-        String EVENT_NAV_EVENT = "com.ernnavigationApi.ern.api.event.navEvent";
-        String EVENT_ON_NAV_BUTTON_CLICK = "com.ernnavigationApi.ern.api.event.onNavButtonClick";
+        String EVENT_NAV_EVENT = "com.ernnavigationapi.ern.api.event.navEvent";
+        String EVENT_ON_NAV_BUTTON_CLICK = "com.ernnavigationapi.ern.api.event.onNavButtonClick";
 
         UUID addNavEventEventListener(
                 @NonNull final ElectrodeBridgeEventListener<NavEventData> eventListener);
@@ -75,10 +75,10 @@ public final class EnNavigationApi {
     }
 
     public interface Requests {
-        String REQUEST_BACK = "com.ernnavigationApi.ern.api.request.back";
-        String REQUEST_FINISH = "com.ernnavigationApi.ern.api.request.finish";
-        String REQUEST_NAVIGATE = "com.ernnavigationApi.ern.api.request.navigate";
-        String REQUEST_UPDATE = "com.ernnavigationApi.ern.api.request.update";
+        String REQUEST_BACK = "com.ernnavigationapi.ern.api.request.back";
+        String REQUEST_FINISH = "com.ernnavigationapi.ern.api.request.finish";
+        String REQUEST_NAVIGATE = "com.ernnavigationapi.ern.api.request.navigate";
+        String REQUEST_UPDATE = "com.ernnavigationapi.ern.api.request.update";
 
         RequestHandlerHandle registerBackRequestHandler(
                 @NonNull final ElectrodeBridgeRequestHandler<ErnNavRoute, None> handler);

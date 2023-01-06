@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ernnavigationApi.ern.model;
+package com.ernnavigationapi.ern.model;
 
 import android.os.Bundle;
 import android.os.Parcel;

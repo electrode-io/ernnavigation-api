@@ -18,8 +18,8 @@
   },
   "ern": {
     "message": {
-      "moduleName": "ernnavigationApi",
       "namespace": "com.ernnavigationApi.ern",
+      "moduleName": "ernnavigationApi",
       "apiSchemaPath": "schema.json",
       "artifactId": "react-native-ernnavigationApi-api"
     },

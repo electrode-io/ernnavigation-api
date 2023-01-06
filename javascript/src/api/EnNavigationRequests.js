@@ -11,7 +11,7 @@ export default class EnNavigationRequests {
    */
   registerBackRequestHandler(handler: Function): Promise<any> {
     this._bridge.registerRequestHandler(
-      'com.ernnavigationApi.ern.api.request.back',
+      'com.ernnavigationapi.ern.api.request.back',
       handler,
     );
   }
@@ -22,7 +22,7 @@ export default class EnNavigationRequests {
    */
   registerFinishRequestHandler(handler: Function): Promise<any> {
     this._bridge.registerRequestHandler(
-      'com.ernnavigationApi.ern.api.request.finish',
+      'com.ernnavigationapi.ern.api.request.finish',
       handler,
     );
   }
@@ -33,7 +33,7 @@ export default class EnNavigationRequests {
    */
   registerNavigateRequestHandler(handler: Function): Promise<any> {
     this._bridge.registerRequestHandler(
-      'com.ernnavigationApi.ern.api.request.navigate',
+      'com.ernnavigationapi.ern.api.request.navigate',
       handler,
     );
   }
@@ -44,7 +44,7 @@ export default class EnNavigationRequests {
    */
   registerUpdateRequestHandler(handler: Function): Promise<any> {
     this._bridge.registerRequestHandler(
-      'com.ernnavigationApi.ern.api.request.update',
+      'com.ernnavigationapi.ern.api.request.update',
       handler,
     );
   }
@@ -55,7 +55,7 @@ export default class EnNavigationRequests {
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}
    */
   back(route: any, timeout: number): Promise<any> {
-    return this._bridge.sendRequest('com.ernnavigationApi.ern.api.request.back', {
+    return this._bridge.sendRequest('com.ernnavigationapi.ern.api.request.back', {
       data: route,
       timeout,
     });
@@ -68,7 +68,7 @@ export default class EnNavigationRequests {
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}
    */
   finish(opts: any, timeout: number): Promise<any> {
-    return this._bridge.sendRequest('com.ernnavigationApi.ern.api.request.finish', {
+    return this._bridge.sendRequest('com.ernnavigationapi.ern.api.request.finish', {
       data: opts,
       timeout,
     });
@@ -80,7 +80,7 @@ export default class EnNavigationRequests {
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}
    */
   navigate(route: any, timeout: number): Promise<any> {
-    return this._bridge.sendRequest('com.ernnavigationApi.ern.api.request.navigate', {
+    return this._bridge.sendRequest('com.ernnavigationapi.ern.api.request.navigate', {
       data: route,
       timeout,
     });
@@ -92,7 +92,7 @@ export default class EnNavigationRequests {
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}
    */
   update(updatedRoute: any, timeout: number): Promise<any> {
-    return this._bridge.sendRequest('com.ernnavigationApi.ern.api.request.update', {
+    return this._bridge.sendRequest('com.ernnavigationapi.ern.api.request.update', {
       data: updatedRoute,
       timeout,
     });
