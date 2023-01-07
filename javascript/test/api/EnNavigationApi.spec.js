@@ -7,8 +7,6 @@
  * Do not edit the class manually.
  */
 
-import {expect} from 'chai';
-
 import EnNavigationRequests from '../../src/api/EnNavigationRequests';
 import EnNavigationEvents from '../../src/api/EnNavigationEvents';
 
@@ -16,75 +14,74 @@ describe('EnNavigationApi', function () {
   let requests;
   let events;
   beforeEach(function () {
+    let requestHandler;
     requests = new EnNavigationRequests({
-      registerHandler() {
+      registerRequestHandler(name, handler) {
+        requestHandler = handler;
       },
-      sendRequest() {
+      sendRequest(name, data) {
+        requestHandler && requestHandler(data);
+        return Promise.resolve(data);
       },
     });
+    let eventListener;
     events = new EnNavigationEvents({
-      registerEventListener() {
+      registerEventListener(name, listener) {
+        eventListener = listener;
       },
-      emitEvent() {
+      emitEvent(name, data) {
+        eventListener && eventListener(data);
       },
     });
   });
 
-  describe('back', function () {
-    it('should send request back successfully', () => {
-      // uncomment below and update the code to test back
-      //return requests.back(route: any).then(response => {
-      //  if (error) throw error;
-      //  expect(response).to.be();
-      //});
+  describe('back', () => {
+    it('sends "back" request', () => {
+      return requests.back('id').then(response => {
+        expect(response).toEqual({data: 'id', timeout: undefined});
+      });
     });
   });
 
-  describe('finish', function () {
-    it('should send request finish successfully', () => {
-      // uncomment below and update the code to test finish
-      //return requests.finish(opts: any).then(response => {
-      //  if (error) throw error;
-      //  expect(response).to.be();
-      //});
+  describe('finish', () => {
+    it('sends "finish" request', () => {
+      return requests.finish('id').then(response => {
+        expect(response).toEqual({data: 'id', timeout: undefined});
+      });
     });
   });
 
-  describe('navEvent', function () {
-    it('should emit event navEvent successfully', done => {
-      // uncomment below and update the code to test navEvent
-      //events.addNavEventEventListener(() => done());
-      //events.emitNavEvent(eventData: any);
-      done();
+  describe('navEvent', () => {
+    it('emits "navEvent" event', () => {
+      const listener = jest.fn();
+      events.addNavEventEventListener(listener);
+      events.emitNavEvent('id');
+      expect(listener).toHaveBeenCalledWith({data: 'id'});
     });
   });
 
-  describe('navigate', function () {
-    it('should send request navigate successfully', () => {
-      // uncomment below and update the code to test navigate
-      //return requests.navigate(route: any).then(response => {
-      //  if (error) throw error;
-      //  expect(response).to.be();
-      //});
+  describe('navigate', () => {
+    it('sends "navigate" request', () => {
+      return requests.navigate('id').then(response => {
+        expect(response).toEqual({data: 'id', timeout: undefined});
+      });
     });
   });
 
-  describe('onNavButtonClick', function () {
-    it('should emit event onNavButtonClick successfully', done => {
-      // uncomment below and update the code to test onNavButtonClick
-      //events.addOnNavButtonClickEventListener(() => done());
-      //events.emitOnNavButtonClick(buttonId: string);
-      done();
+  describe('onNavButtonClick', () => {
+    it('emits "onNavButtonClick" event', () => {
+      const listener = jest.fn();
+      events.addOnNavButtonClickEventListener(listener);
+      events.emitOnNavButtonClick('id');
+      expect(listener).toHaveBeenCalledWith({data: 'id'});
     });
   });
 
-  describe('update', function () {
-    it('should send request update successfully', () => {
-      // uncomment below and update the code to test update
-      //return requests.update(updatedRoute: any).then(response => {
-      //  if (error) throw error;
-      //  expect(response).to.be();
-      //});
+  describe('update', () => {
+    it('sends "update" request', () => {
+      return requests.update('id').then(response => {
+        expect(response).toEqual({data: 'id', timeout: undefined});
+      });
     });
   });
 });

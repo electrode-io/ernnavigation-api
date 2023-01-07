@@ -1,7 +1,9 @@
 // @flow
 
 export default class EnNavigationRequests {
-  constructor(bridge) {
+  _bridge: Object;
+
+  constructor(bridge: Object) {
     this._bridge = bridge;
   }
 
@@ -9,9 +11,9 @@ export default class EnNavigationRequests {
    * Registers a handler for a particular api. This allows JavaScript to handle a request from native.
    * @param handler The handler function, taking a single parameter being the data of the request and returning a Promise. Implementer of the handler should either resolve the promise with an object being the response data (if any) or reject the promise with an Error
    */
-  registerBackRequestHandler(handler: Function): Promise<any> {
+  registerBackRequestHandler(handler: Function) {
     this._bridge.registerRequestHandler(
-      'com.ernnavigationapi.ern.api.request.back',
+      'com.ernnavigation.ern.api.request.back',
       handler,
     );
   }
@@ -20,9 +22,9 @@ export default class EnNavigationRequests {
    * Registers a handler for a particular api. This allows JavaScript to handle a request from native.
    * @param handler The handler function, taking a single parameter being the data of the request and returning a Promise. Implementer of the handler should either resolve the promise with an object being the response data (if any) or reject the promise with an Error
    */
-  registerFinishRequestHandler(handler: Function): Promise<any> {
+  registerFinishRequestHandler(handler: Function) {
     this._bridge.registerRequestHandler(
-      'com.ernnavigationapi.ern.api.request.finish',
+      'com.ernnavigation.ern.api.request.finish',
       handler,
     );
   }
@@ -31,9 +33,9 @@ export default class EnNavigationRequests {
    * Registers a handler for a particular api. This allows JavaScript to handle a request from native.
    * @param handler The handler function, taking a single parameter being the data of the request and returning a Promise. Implementer of the handler should either resolve the promise with an object being the response data (if any) or reject the promise with an Error
    */
-  registerNavigateRequestHandler(handler: Function): Promise<any> {
+  registerNavigateRequestHandler(handler: Function) {
     this._bridge.registerRequestHandler(
-      'com.ernnavigationapi.ern.api.request.navigate',
+      'com.ernnavigation.ern.api.request.navigate',
       handler,
     );
   }
@@ -42,9 +44,9 @@ export default class EnNavigationRequests {
    * Registers a handler for a particular api. This allows JavaScript to handle a request from native.
    * @param handler The handler function, taking a single parameter being the data of the request and returning a Promise. Implementer of the handler should either resolve the promise with an object being the response data (if any) or reject the promise with an Error
    */
-  registerUpdateRequestHandler(handler: Function): Promise<any> {
+  registerUpdateRequestHandler(handler: Function) {
     this._bridge.registerRequestHandler(
-      'com.ernnavigationapi.ern.api.request.update',
+      'com.ernnavigation.ern.api.request.update',
       handler,
     );
   }
@@ -55,7 +57,7 @@ export default class EnNavigationRequests {
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}
    */
   back(route: any, timeout: number): Promise<any> {
-    return this._bridge.sendRequest('com.ernnavigationapi.ern.api.request.back', {
+    return this._bridge.sendRequest('com.ernnavigation.ern.api.request.back', {
       data: route,
       timeout,
     });
@@ -68,7 +70,7 @@ export default class EnNavigationRequests {
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}
    */
   finish(opts: any, timeout: number): Promise<any> {
-    return this._bridge.sendRequest('com.ernnavigationapi.ern.api.request.finish', {
+    return this._bridge.sendRequest('com.ernnavigation.ern.api.request.finish', {
       data: opts,
       timeout,
     });
@@ -80,7 +82,7 @@ export default class EnNavigationRequests {
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}
    */
   navigate(route: any, timeout: number): Promise<any> {
-    return this._bridge.sendRequest('com.ernnavigationapi.ern.api.request.navigate', {
+    return this._bridge.sendRequest('com.ernnavigation.ern.api.request.navigate', {
       data: route,
       timeout,
     });
@@ -92,7 +94,7 @@ export default class EnNavigationRequests {
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}
    */
   update(updatedRoute: any, timeout: number): Promise<any> {
-    return this._bridge.sendRequest('com.ernnavigationapi.ern.api.request.update', {
+    return this._bridge.sendRequest('com.ernnavigation.ern.api.request.update', {
       data: updatedRoute,
       timeout,
     });

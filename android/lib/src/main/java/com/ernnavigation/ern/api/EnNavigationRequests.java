@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.ernnavigationapi.ern.api;
+package com.ernnavigation.ern.api;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.walmartlabs.electrode.reactnative.bridge.ElectrodeBridgeHolder;
 import com.walmartlabs.electrode.reactnative.bridge.ElectrodeBridgeRequestHandler;
@@ -28,8 +28,8 @@ import com.walmartlabs.electrode.reactnative.bridge.RequestProcessor;
 
 import java.util.*;
 
-import com.ernnavigationapi.ern.model.ErnNavRoute;
-import com.ernnavigationapi.ern.model.NavEventData;
+import com.ernnavigation.ern.model.ErnNavRoute;
+import com.ernnavigation.ern.model.NavEventData;
 
 final class EnNavigationRequests implements EnNavigationApi.Requests {
     EnNavigationRequests() {

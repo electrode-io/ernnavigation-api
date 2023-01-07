@@ -14,30 +14,30 @@
  * limitations under the License.
  */
 
-package com.ernnavigationapi.ern.model;
+package com.ernnavigation.ern.model;
 
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.util.List;
 
 import com.walmartlabs.electrode.reactnative.bridge.Bridgeable;
 
 import static com.walmartlabs.electrode.reactnative.bridge.util.BridgeArguments.*;
 
-public class NavigationBarLeftButton implements Parcelable, Bridgeable {
-    public static final Creator<NavigationBarLeftButton> CREATOR =
-            new Creator<NavigationBarLeftButton>() {
+public class NavigationBarButton implements Parcelable, Bridgeable {
+    public static final Creator<NavigationBarButton> CREATOR =
+            new Creator<NavigationBarButton>() {
                 @Override
-                public NavigationBarLeftButton createFromParcel(Parcel in) {
-                    return new NavigationBarLeftButton(in);
+                public NavigationBarButton createFromParcel(Parcel in) {
+                    return new NavigationBarButton(in);
                 }
 
                 @Override
-                public NavigationBarLeftButton[] newArray(int size) {
-                    return new NavigationBarLeftButton[size];
+                public NavigationBarButton[] newArray(int size) {
+                    return new NavigationBarButton[size];
                 }
             };
 
@@ -45,36 +45,43 @@ public class NavigationBarLeftButton implements Parcelable, Bridgeable {
     private String icon;
     private String tint;
     private String id;
+    private String location;
     private Boolean disabled;
     private String adaLabel;
 
-    private NavigationBarLeftButton() {
+    private NavigationBarButton() {
     }
 
-    private NavigationBarLeftButton(Builder builder) {
+    private NavigationBarButton(Builder builder) {
         this.title = builder.title;
         this.icon = builder.icon;
         this.tint = builder.tint;
         this.id = builder.id;
+        this.location = builder.location;
         this.disabled = builder.disabled;
         this.adaLabel = builder.adaLabel;
     }
 
-    private NavigationBarLeftButton(Parcel in) {
+    private NavigationBarButton(Parcel in) {
         this(in.readBundle());
     }
 
-    public NavigationBarLeftButton(@NonNull Bundle bundle) {
+    public NavigationBarButton(@NonNull Bundle bundle) {
+        if (!bundle.containsKey("id")) {
+            throw new IllegalArgumentException("id property is required");
+        }
+
         this.title = bundle.getString("title");
         this.icon = bundle.getString("icon");
         this.tint = bundle.getString("tint");
         this.id = bundle.getString("id");
+        this.location = bundle.getString("location");
         this.disabled = bundle.containsKey("disabled") ? bundle.getBoolean("disabled") : null;
         this.adaLabel = bundle.getString("adaLabel");
     }
 
     /**
-     * Button title if any, applied only for iOS.
+     * Button title if any.
      *
      * @return String
      */
@@ -104,17 +111,27 @@ public class NavigationBarLeftButton implements Parcelable, Bridgeable {
     }
 
     /**
-     * Id of the button, this namespace will be used as an identifier when a button click event is emitted. If included, click will not be handled by native instead an event will be fired for react native to handle the backpress.
+     * Id of the button, this namespace will be used as an identifier when a button click event is emitted.
      *
      * @return String
      */
-    @Nullable
+    @NonNull
     public String getId() {
         return id;
     }
 
     /**
-     * Default to false. If set to true the button will be disabled(non-clickable). Android will remove the left icon indicator
+     * @Deprecated This is now Deprecated with the introduction of NavigationBarLeftButton. Allowed enums: left, right
+     *
+     * @return String
+     */
+    @Nullable
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * Default to false. If set to true the button will be disabled(non-clickable)
      *
      * @return Boolean
      */
@@ -147,6 +164,7 @@ public class NavigationBarLeftButton implements Parcelable, Bridgeable {
     @Override
     public Bundle toBundle() {
         Bundle bundle = new Bundle();
+        bundle.putString("id", this.id);
         if (title != null) {
             bundle.putString("title", this.title);
         }
@@ -156,8 +174,8 @@ public class NavigationBarLeftButton implements Parcelable, Bridgeable {
         if (tint != null) {
             bundle.putString("tint", this.tint);
         }
-        if (id != null) {
-            bundle.putString("id", this.id);
+        if (location != null) {
+            bundle.putString("location", this.location);
         }
         if (this.disabled != null) {
             bundle.putBoolean("disabled", this.disabled);
@@ -175,20 +193,23 @@ public class NavigationBarLeftButton implements Parcelable, Bridgeable {
                 + "icon:" + (icon != null ? "\"" + icon + "\"" : null) + ","
                 + "tint:" + (tint != null ? "\"" + tint + "\"" : null) + ","
                 + "id:" + (id != null ? "\"" + id + "\"" : null) + ","
+                + "location:" + (location != null ? "\"" + location + "\"" : null) + ","
                 + "disabled:" + disabled + ","
                 + "adaLabel:" + (adaLabel != null ? "\"" + adaLabel + "\"" : null)
                 + "}";
     }
 
     public static class Builder {
+        private final String id;
         private String title;
         private String icon;
         private String tint;
-        private String id;
+        private String location;
         private Boolean disabled;
         private String adaLabel;
 
-        public Builder() {
+        public Builder(@NonNull String id) {
+            this.id = id;
         }
 
         @NonNull
@@ -210,8 +231,8 @@ public class NavigationBarLeftButton implements Parcelable, Bridgeable {
         }
 
         @NonNull
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder location(@Nullable String location) {
+            this.location = location;
             return this;
         }
 
@@ -228,8 +249,8 @@ public class NavigationBarLeftButton implements Parcelable, Bridgeable {
         }
 
         @NonNull
-        public NavigationBarLeftButton build() {
-            return new NavigationBarLeftButton(this);
+        public NavigationBarButton build() {
+            return new NavigationBarButton(this);
         }
     }
 }
