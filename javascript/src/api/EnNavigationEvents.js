@@ -1,20 +1,22 @@
 // @flow
 
 export default class EnNavigationEvents {
-  constructor(bridge) {
+  _bridge: Object;
+
+  constructor(bridge: Object) {
     this._bridge = bridge;
   }
 
   addNavEventEventListener(eventListener: Function): string {
     return this._bridge.registerEventListener(
-      'com.ernnavigationapi.ern.api.event.navEvent',
+      'com.ernnavigation.ern.api.event.navEvent',
       eventListener,
     );
   }
 
   addOnNavButtonClickEventListener(eventListener: Function): string {
     return this._bridge.registerEventListener(
-      'com.ernnavigationapi.ern.api.event.onNavButtonClick',
+      'com.ernnavigation.ern.api.event.onNavButtonClick',
       eventListener,
     );
   }
@@ -28,13 +30,13 @@ export default class EnNavigationEvents {
   }
 
   emitNavEvent(eventData: any): void {
-    return this._bridge.emitEvent('com.ernnavigationapi.ern.api.event.navEvent', {
+    return this._bridge.emitEvent('com.ernnavigation.ern.api.event.navEvent', {
       data: eventData,
     });
   }
 
   emitOnNavButtonClick(buttonId: string): void {
-    return this._bridge.emitEvent('com.ernnavigationapi.ern.api.event.onNavButtonClick', {
+    return this._bridge.emitEvent('com.ernnavigation.ern.api.event.onNavButtonClick', {
       data: buttonId,
     });
   }
