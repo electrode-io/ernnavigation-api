@@ -78,7 +78,7 @@ public class ErnNavRoute implements Parcelable, Bridgeable {
     }
 
     /**
-     * Path of the Route. Mostly the name of the container(defined by the native app) or the miniapp name. The content of the path is mainly determined by the native implemenation of the API
+     * Path of the Route. Mostly the name of the container (defined by the native app) or the MiniApp name. The content of the path is mainly determined by the native implementation of the API
      *
      * @return String
      */
@@ -88,7 +88,7 @@ public class ErnNavRoute implements Parcelable, Bridgeable {
     }
 
     /**
-     * Optional Payload (respresented as JSON String) needed by the screen you are trying to navigate to.
+     * Optional Payload (represented as JSON String) needed by the screen you are trying to navigate to.
      *
      * @return String
      */

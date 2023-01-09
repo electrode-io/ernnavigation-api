@@ -89,7 +89,7 @@ export default class EnNavigationRequests {
   }
 
   /**
-   * @param  updatedRoute Updated route object. This API expectes that the path of the update call is unchanged from the last navigate call. It is likely that the native implementation will reject your update call if the path is different from the last navigate call.
+   * @param  updatedRoute Updated route object. This API expects that the path of the update call is unchanged from the last navigate call. It is likely that the native implementation will reject your update call if the path is different from the last navigate call.
    * @param timeout timeout in milliseconds
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}
    */
