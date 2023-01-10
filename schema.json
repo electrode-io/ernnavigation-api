@@ -37,7 +37,7 @@
           {
             "name": "updatedRoute",
             "in": "body",
-            "description": "Updated route object. This API expectes that the path of the update call is unchanged from the last navigate call. It is likely that the native implementation will reject your update call if the path is different from the last navigate call.",
+            "description": "Updated route object. This API expects that the path of the update call is unchanged from the last navigate call. It is likely that the native implementation will reject your update call if the path is different from the last navigate call.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/ErnNavRoute"
@@ -128,11 +128,11 @@
       "properties": {
         "path": {
           "type": "string",
-          "description": "Path of the Route. Mostly the name of the container(defined by the native app) or the miniapp name. The content of the path is mainly determined by the native implemenation of the API"
+          "description": "Path of the Route. Mostly the name of the container (defined by the native app) or the MiniApp name. The content of the path is mainly determined by the native implementation of the API"
         },
         "jsonPayload": {
           "type": "string",
-          "description": "Optional Payload (respresented as JSON String) needed by the screen you are trying to navigate to."
+          "description": "Optional Payload (represented as JSON String) needed by the screen you are trying to navigate to."
         },
         "navigationBar": {
           "$ref": "#/definitions/NavigationBar"
@@ -242,29 +242,24 @@
         "title"
       ]
     },
-  "NavEventData": {
-    "properties": {
-      "eventType": {
-        "type": "string",
-        "description": "Type of the event. Supported values [BUTTON_CLICK, DID_FOCUS, DID_BLUR]"
+    "NavEventData": {
+      "properties": {
+        "eventType": {
+          "type": "string",
+          "description": "Type of the event. Supported values [BUTTON_CLICK, DID_FOCUS, DID_BLUR]"
+        },
+        "viewId": {
+          "type": "string",
+          "description": "MiniApp view identifier to indicate the view instance that is firing the event. This is needed when more than one instance of the same component is mounted."
+        },
+        "jsonPayload": {
+          "type": "string",
+          "description": "optional payload associated with the event"
+        }
       },
-      "viewId": {
-        "type": "string",
-        "description": "MiniApp view identifier to indicate the view instance that is firing the event. This is needed when more than one instance of the same component is mounted."
-      },
-      "jsonPayload": {
-        "type": "string",
-        "description": "optional payload associated with the event"
-      }
-    },
-    "required": [
-      "eventType"
-    ]
-  }
-  },
-  "ern": {
-    "moduleName": "Counseling",
-    "moduleType": "ern-miniapp",
-    "version": "0.28.2"
+      "required": [
+        "eventType"
+      ]
+    }
   }
 }

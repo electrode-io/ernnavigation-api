@@ -1,12 +1,12 @@
 {
   "name": "ernnavigation-api",
   "version": "1.3.0",
-  "description": "ERN Generated API for ernnavigation-api",
+  "description": "ERN Generated API for ernnavigation",
   "main": "javascript/src/index.js",
   "keywords": [
     "ern-api"
   ],
-  "author": "Deepu Eswararth Ganapathiyadan",
+  "author": "Electrode Native Team",
   "dependencies": {
     "react-native-electrode-bridge": "1.5.x"
   },
